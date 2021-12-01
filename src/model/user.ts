@@ -1,5 +1,15 @@
 import { Document, Schema, Model, model} from 'mongoose';
 
+const LocationSchema = new Schema({
+    room: {
+        type: String,
+    },
+    dateandtime: {
+      type: String,
+    },
+});
+
+
 export interface IUser extends Document {
   Employee_Name: string;
   Employee_ID: string;
@@ -11,6 +21,7 @@ export interface IUser extends Document {
   otp: string;
   image: string;
   Division: string;
+  accessedAt: Object;
 }
 
 export const userSchema: Schema = new Schema({
@@ -58,7 +69,8 @@ export const userSchema: Schema = new Schema({
   },
   Division: {
     type: String,
-  }
+  },
+  accessedAt: [LocationSchema],
 });
 
 export const User: Model<IUser> = model<IUser>('User', userSchema);

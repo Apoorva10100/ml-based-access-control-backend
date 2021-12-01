@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { changeOtp, getAll, getUser } from "../controller/user_controller";
+import { accessLocations, changeOtp, getAccessed, getAll, getLocations, getUser } from "../controller/user_controller";
 
 
 const router = Router();
@@ -27,6 +27,31 @@ router.get("/getall", async (req, res) => {
         await getAll(req,res);
     }
     catch(e){
+        res.status(500).send(e);
+    }
+});
+
+router.patch('/addaccessed', async (req,res) => {
+    try{
+        await accessLocations(req,res);
+    }
+    catch(e){
+        res.status(500).send(e);
+    }
+});
+
+router.get('/getaccessed/:loc', async (req,res) => {
+    try{
+        await getAccessed(req,res);
+    } catch(e){ 
+        res.status(500).send(e);
+    }
+});
+
+router.get('/getloc', async (req,res) => {
+    try{
+        await getLocations(req,res);
+    } catch(e){ 
         res.status(500).send(e);
     }
 });
