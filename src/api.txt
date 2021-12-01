@@ -1,0 +1,7 @@
+/login ------------------- Done
+/getdetails ------------------- Done
+/saveotp ------------------- Done
+
+
+DB:
+employeename, employeeid, project name, supervisor, division, otp, image, accessed places, password
