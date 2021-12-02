@@ -11,8 +11,13 @@ export async function changeOtp(req: Request, res: Response) {
 }
 
 export async function getUser(req: Request, res: Response) {
-    const user = await User.findOne({ Email: req.body.Email });
-    res.status(200).json(user);
+    await User.findOne({ Email: req.body.Email }, (err: any, user: any) => {
+        if (!user) {
+            res.status(404).json({ message: "User not found" });
+        } else {
+            res.status(200).json(user);
+        }
+    });
 }
 
 export async function getAll(req: Request, res: Response) {
