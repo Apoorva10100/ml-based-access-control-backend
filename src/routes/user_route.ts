@@ -40,7 +40,7 @@ router.patch('/addaccessed', async (req,res) => {
     }
 });
 
-router.get('/getaccessed/:loc', async (req,res) => {
+router.post('/getaccessed/:loc', async (req,res) => {
     try{
         await getAccessed(req,res);
     } catch(e){ 
@@ -48,7 +48,7 @@ router.get('/getaccessed/:loc', async (req,res) => {
     }
 });
 
-router.get('/getloc', async (req,res) => {
+router.post('/getloc', async (req,res) => {
     try{
         await getLocations(req,res);
     } catch(e){ 

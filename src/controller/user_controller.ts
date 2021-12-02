@@ -75,7 +75,7 @@ export async function getAccessed(req: Request, res: Response) {
                 }
             }}
             
-            res.status(200).json(locs);
+            res.status(200).send(locs);
         }
     });
 }
