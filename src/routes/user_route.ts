@@ -13,7 +13,7 @@ router.patch('/saveotp', async (req, res) => {
     }
 });
 
-router.get("/get", async (req, res) => {
+router.post("/get", async (req, res) => {
     try{
         await getUser(req,res);
     }
