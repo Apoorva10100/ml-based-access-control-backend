@@ -99,3 +99,17 @@ export async function getLocations(req: Request, res: Response) {
             }
     });
 }
+
+export async function getAllImages(req: Request, res:Response){
+    const images: any[] = [];
+    const users = await User.find();
+    for (var i = 0; i < users.length; i++){
+        var img = users[i].image;
+        console.log(users[i].Email);
+        if (img!= undefined){
+            images.push(img);
+        }
+    }
+    console.log(images);
+
+}
