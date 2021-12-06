@@ -64,7 +64,7 @@ export const userSchema: Schema = new Schema({
   otp: {
     type: String
   },
-  dp: {
+  image: {
     type: String,
   },
   Division: {

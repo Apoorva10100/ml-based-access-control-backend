@@ -31,9 +31,9 @@ router.get("/getall", async (req, res) => {
     }
 });
 
-router.get('/getimages',async (req,res) => {
+router.get('/getimages',async (req,res,next) => {
     try{
-        await getAllImages(req,res);
+        await getAllImages(req,res,next );
     }
     catch(e){
         res.status(500).send(e);

@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import { User } from "../model/user";
 
 export async function changeOtp(req: Request, res: Response) {
@@ -100,16 +100,14 @@ export async function getLocations(req: Request, res: Response) {
     });
 }
 
-export async function getAllImages(req: Request, res:Response){
+export async function getAllImages(req: Request, res:Response, next: NextFunction){
     const images: any[] = [];
     const users = await User.find();
     for (var i = 0; i < users.length; i++){
         var img = users[i].image;
-        console.log(users[i].Email);
         if (img!= undefined){
             images.push(img);
         }
     }
-    console.log(images);
-
+    res.status(200).json(images);
 }
