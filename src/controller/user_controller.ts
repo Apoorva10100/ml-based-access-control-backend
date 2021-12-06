@@ -102,12 +102,6 @@ export async function getLocations(req: Request, res: Response) {
 
 export async function getAllImages(req: Request, res:Response, next: NextFunction){
     const images: any[] = [];
-    const users = await User.find();
-    for (var i = 0; i < users.length; i++){
-        var img = users[i].image;
-        if (img!= undefined){
-            images.push(img);
-        }
-    }
-    res.status(200).json(images);
+    const users = await User.findOne({Email: req.body.Email});
+    res.status(200).json(users?.image);
 }
