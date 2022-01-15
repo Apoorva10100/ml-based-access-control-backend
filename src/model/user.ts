@@ -13,14 +13,13 @@ const LocationSchema = new Schema({
 export interface IUser extends Document {
   Employee_Name: string;
   Employee_ID: string;
-  Project_Name: string;
-  Supervisor_Name: string;
-  Role: string;
+  // Project_Name: string;
+  Department: string;
+  Specialization: string;
   Email: string;
   Password: string;
   otp: string;
   image: string;
-  Division: string;
   accessedAt: Object;
 }
 
@@ -33,15 +32,23 @@ export const userSchema: Schema = new Schema({
     type: String,
     required: true,
   },
-  Project_Name: {
-    type: String,
-    required: true,
-  },
+  // Project_Name: {
+  //   type: String,
+  //   required: true,
+  // },
   Supervisor_Name: {
     type: String,
     required: true,
   },
-  Role: {
+  // Role: {
+  //   type: String,
+  //   required: true,
+  // },
+  Department: {
+    type: String,
+    required: true,
+  },
+  Specialization: {
     type: String,
     required: true,
   },
@@ -67,9 +74,9 @@ export const userSchema: Schema = new Schema({
   image: {
     type: String,
   },
-  Division: {
-    type: String,
-  },
+  // Division: {
+  //   type: String,
+  // },
   accessedAt: [LocationSchema],
 });
 

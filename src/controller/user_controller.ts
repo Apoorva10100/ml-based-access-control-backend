@@ -20,6 +20,16 @@ export async function getUser(req: Request, res: Response) {
     });
 }
 
+export async function getUserById(req: Request, res: Response) {
+    await User.findOne({ Employee_ID: req.body.Employee_ID }, (err: any, user: any) => {
+        if (!user) {
+            res.status(404).json({ message: "User not found" });
+        } else {
+            res.status(200).json(user);
+        }
+    });
+}
+
 export async function getAll(req: Request, res: Response) {
     const user = await User.find();
     res.status(200).json(user);

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { accessLocations, changeOtp, getAccessed, getAll, getAllImages, getLocations, getUser } from "../controller/user_controller";
+import { accessLocations, changeOtp, getAccessed, getAll, getAllImages, getLocations, getUser, getUserById } from "../controller/user_controller";
 
 
 const router = Router();
@@ -16,6 +16,15 @@ router.patch('/saveotp', async (req, res) => {
 router.post("/get", async (req, res) => {
     try{
         await getUser(req,res);
+    }
+    catch(e){
+        res.status(500).send(e);
+    }
+});
+
+router.post("/getbyid", async (req, res) => {
+    try{
+        await getUserById(req,res);
     }
     catch(e){
         res.status(500).send(e);
