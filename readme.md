@@ -1,4 +1,6 @@
-# Typescript Starter 
+# ml-based-access-control-backend
+
+Contains the backend code for the Sem VII project "ML Based Industrial Access Control"
 
 ## Setup
 
